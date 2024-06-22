@@ -22,6 +22,7 @@
                     <th>Descriere</th>
                     <th>Notă</th>
                     <th>Analiză</th>
+                    <th>Acțiuni</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                     <td>Observată de medic, recomandare pentru verificare anuală.</td>
                     <td>7</td>
                     <td>Cancerigen</td>
+                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
                 </tr>
                 <tr>
                     <td>2023-06-20</td>
@@ -46,6 +48,7 @@
                     <td>Îngrijorare, consultație urgentă recomandată.</td>
                     <td>8</td>
                     <td>Cancerigen</td>
+                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
                 </tr>
                 <tr>
                     <td>2023-07-10</td>
@@ -57,6 +60,7 @@
                     <td>Monitorizare recomandată.</td>
                     <td>8</td>
                     <td>Non-Cancerigen</td>
+                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
                 </tr>
                 <tr>
                     <td>2023-08-05</td>
@@ -68,6 +72,7 @@
                     <td>Verificare regulată recomandată.</td>
                     <td>8</td>
                     <td>Non-Cancerigen</td>
+                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
                 </tr>
                 <tr>
                     <td>2023-09-02</td>
@@ -79,11 +84,14 @@
                     <td>Alună observată și notată, monitorizare anuală.</td>
                     <td>10</td>
                     <td>Non-Cancerigen</td>
+                    <td><button  class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
                 </tr>
             </tbody>
         </table>
         
         <a href="formular.html" class="add-button">Adaugă Aluniță</a>
     </div>
+    
+    <script src="../JS/tabel.js"></script>
 </body>
 </html>
