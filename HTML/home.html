@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Principală</title>
-    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../Style/home.css">
 </head>
 <body>
     <div class="container">
         <h1>Pagina Principală</h1>
-        <button class="btn-large" onclick="location.href='tabel.html'">Detalii alunițe</button>
-        <button class="btn-large" onclick="location.href='statistica.html'">Vezi statistică</button>
-        <button class="btn-large" onclick="location.href='AI.html'">Detectează</button>
+        <form action = "" method = "post">
+            <input type="hidden" name="alunite" value="1">
+            <button class="btn-large" id="button1" type="submit">Detalii alunițe</button>
+        </form>
+        <form action = "" method = "post">
+            <input type="hidden" name="stats" value="2">
+            <button class="btn-large" id="button2" type="submit">Vezi statistică</button>
+        </form>
+        <form action = "" method = "post">
+            <input type="hidden" name="detect" value="3">
+            <button class="btn-large" id="button3" type="submit">Detectează</button>
+        </form>
     </div>
 </body>
 </html>

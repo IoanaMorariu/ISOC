@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listă Alunițe</title>
-    <link rel="stylesheet" href="../CSS/tabel.css">
+    <link rel="stylesheet" href="../Style/tabel.css">
 </head>
 <body>
     <div class="container">
         <h2>Listă Alunițe</h2>
-        
+
         <table>
             <thead>
                 <tr>
@@ -26,72 +26,39 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2023-05-15</td>
-                    <td>Spate</td>
-                    <td>Mică</td>
-                    <td>Rotundă</td>
-                    <td>Simetrică</td>
-                    <td>Brună</td>
-                    <td>Observată de medic, recomandare pentru verificare anuală.</td>
-                    <td>7</td>
-                    <td>Cancerigen</td>
-                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
-                </tr>
-                <tr>
-                    <td>2023-06-20</td>
-                    <td>Braț</td>
-                    <td>Medie</td>
-                    <td>Neregulată</td>
-                    <td>Asimetrică</td>
-                    <td>Negru</td>
-                    <td>Îngrijorare, consultație urgentă recomandată.</td>
-                    <td>8</td>
-                    <td>Cancerigen</td>
-                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
-                </tr>
-                <tr>
-                    <td>2023-07-10</td>
-                    <td>Gât</td>
-                    <td>Mare</td>
-                    <td>Ovală</td>
-                    <td>Simetrică</td>
-                    <td>Roz</td>
-                    <td>Monitorizare recomandată.</td>
-                    <td>8</td>
-                    <td>Non-Cancerigen</td>
-                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
-                </tr>
-                <tr>
-                    <td>2023-08-05</td>
-                    <td>Picior</td>
-                    <td>Medie</td>
-                    <td>Neregulată</td>
-                    <td>Asimetrică</td>
-                    <td>Alb</td>
-                    <td>Verificare regulată recomandată.</td>
-                    <td>8</td>
-                    <td>Non-Cancerigen</td>
-                    <td><button class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
-                </tr>
-                <tr>
-                    <td>2023-09-02</td>
-                    <td>Față</td>
-                    <td>Mică</td>
-                    <td>Rotundă</td>
-                    <td>Simetrică</td>
-                    <td>Mov</td>
-                    <td>Alună observată și notată, monitorizare anuală.</td>
-                    <td>10</td>
-                    <td>Non-Cancerigen</td>
-                    <td><button  class="delete-button" onclick="deleteRow(this)">Șterge</button></td>
-                </tr>
+                {% for mole in moles %}
+                    <tr>
+                        <td>{{mole.Date}}</td>
+                        <td>{{mole.BodyLocation}}</td>
+                        <td>{{mole.Size}}</td>
+                        <td>{{mole.Shape}}</td>
+                        {% if mole.IsSymmetrical == 1 %}
+                            <td>Simetrica</td>
+                        {% else %}
+                            <td>Asimetrica</td>
+                        {% endif %}
+                        <td>{{mole.Color}}</td>
+                        <td>{{mole.Description}}</td>
+                        <td>{{mole.Grade}}</td>
+                        {% if mole.IsCarcinogenic == 1 %}
+                            <td>Cancerigenă</td>
+                        {% else %}
+                            <td>Non-Cancerigenă</td>
+                        {% endif %}
+                        <td><form action = "" method = "post">
+                            <input type="hidden" name={{mole.User}} value={{mole.Description}}>
+                            <button class="delete-button" id="button1" type="submit">Șterge</button>
+                        </form></td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
-        
-        <a href="formular.html" class="add-button">Adaugă Aluniță</a>
+
+        <form action = "" method = "post">
+            <input type="hidden" name="addMole" value="1">
+            <button class="add-button" id="button1" type="submit">Adaugă Aluniță</button>
+        </form>
     </div>
-    
-    <script src="../JS/tabel.js"></script>
+
 </body>
 </html>

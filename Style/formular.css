@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E90FF;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.dimensiuni,
+.simetrie {
+    display: flex;
+    align-items: center; /* Aliniază vertical butoanele radio */
+    margin-bottom: 15px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+textarea {
+    height: 100px; /* Set the initial height */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button, .cancel-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #C71585;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover, .cancel-button:hover {
+    background-color: #1E90FF;
+}
+
+.cancel-button {
+    background-color: #6c757d; /* Bootstrap gray */
+}
+
+/* Stil pentru input-ul de notă personală */
+#nota {
+    width: 50px; /* Alege o lățime potrivită pentru input-ul de notă */
+    margin-left: 10px; /* Spațiu mic între input și etichetă */
+}
