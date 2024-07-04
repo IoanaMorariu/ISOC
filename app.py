@@ -50,6 +50,7 @@ def home():
             return redirect(url_for("alunite", userId = request.args["userId"]))
         if request.form.get("stats") == "2":
             print("stats")
+            return redirect(url_for("statistica", userId = request.args["userId"]))
         if request.form.get("detect") == "3":
             print("detect")
 
@@ -92,7 +93,7 @@ def formular():
                     "isSymmetrical" : int(request.form.get("isSymmetrical")),
                     "Color" : request.form.get("color"),
                     "Description" : request.form.get("observation"),
-                    "Grade" : request.form.get("grade"),
+                    "Grade" : int(request.form.get("grade")),
                     }
         print(moleData)
 
@@ -105,6 +106,20 @@ def formular():
             return redirect(url_for("alunite", userId = request.args["userId"]))
 
     return render_template("formular.html")
+
+@app.route('/Statistica', methods = ['GET', 'POST'])
+def statistica():
+    userData = {"id" : request.args["userId"]}
+    user = []
+    user.append(userData)
+
+    data = json.dumps(user)
+    response = requests.post('http://localhost:5002/loadMoles', json = data)
+
+    moleData = json.dumps(response.json()["Response"])
+    stats = requests.post('http://localhost:5003/calculateStats', json = moleData)
+
+    return render_template("statistica.html", stats = stats.json()["response"])
 # driver function
 if __name__ == '__main__':
     app.run(host = "0.0.0.0", port = 5000)
