@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluare Aluniță</title>
+    <link rel="stylesheet" href="../Style/formular.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Evaluare Aluniță</h2>
+        <form action="#" method="POST">
+            <label for="data">Data observării:</label>
+            <input type="date" id="data" name="date" required>
+
+            <div class="simetrie">
+                <label>Analiză:</label>
+                <input type="radio" id="simetrica" name="isCarcinogenic" value="1" required>
+                <label for="simetrica">Cancerigenă</label>
+                <input type="radio" id="asimetrica" name="isCarcinogenic" value="0">
+                <label for="asimetrica">Non-Cancerigenă</label>
+            </div>
+
+            <label for="parteCorp">Partea corpului:</label>
+            <input type="text" id="parteCorp" name="bodyLocation" required>
+
+            <div class="dimensiuni">
+                <label>Dimensiune:</label>
+                <input type="radio" id="mica" name="size" value="mică" required>
+                <label for="mica">Mică</label>
+                <input type="radio" id="medie" name="size" value="medie">
+                <label for="medie">Medie</label>
+                <input type="radio" id="mare" name="size" value="mare">
+                <label for="mare">Mare</label>
+            </div>
+
+            <label for="forma">Formă:</label>
+            <select id="forma" name="shape" required>
+                <option value="rotundă">Rotundă</option>
+                <option value="ovală">Ovală</option>
+                <option value="neregulată">Neregulată</option>
+            </select>
+
+            <div class="simetrie">
+                <label>Simetrie:</label>
+                <input type="radio" id="simetrica" name="isSymmetrical" value="1" required>
+                <label for="simetrica">Simetrică</label>
+                <input type="radio" id="asimetrica" name="isSymmetrical" value="0">
+                <label for="asimetrica">Asimetrică</label>
+            </div>
+
+            <label for="culoare">Culoare aluniță:</label>
+            <select id="culoare" name="color" required>
+                <option value="brună">Brună</option>
+                <option value="neagra">Neagră</option>
+                <option value="roșiatică">Roșie</option>
+                <option value="portocalie">Portocalie</option>
+                <option value="roz">Rozalie</option>
+            </select>
+
+            <label for="nota">Notă:</label>
+            <input type="number" id="nota" name="grade" min="1" max="10" required>
+
+            <label for="observatii">Observații:</label>
+            <textarea id="observatii" name="observation" placeholder="Scrieți aici observațiile dumneavoastră..." required></textarea>
+
+            <div class="buttons">
+                <button type="submit">Trimite evaluarea</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Încărcare Imagine</title>
+    <link rel="stylesheet" href="../Style/AI.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Încărcare Imagine</h1>
+        <form id="uploadForm" name="uploadForm">
+            <input type="file" id="imageInput" name="imageInput" accept="image/*"/><br>
+            <button type="submit" id="submit" name="submit" class="btn">Submit</button>
+        </form>
+        <div id="message"></div>
+        <div id="imageContainer"></div>
+        <div id="cancerMessage"></div>
+    </div>
+</body>
+
+<script type='text/javascript'>
+    const form = document.querySelector("#uploadForm");
+    var cancerMessageDiv = document.getElementById('cancerMessage');
+
+    async function sendData()
+    {
+        const formData = new FormData(form);
+        try
+        {
+            console.log(formData.get("imageInput"));
+            fetch("http://20.76.111.123:5000/analizeMole",
+                {
+                    method: "POST",
+                    body: formData,
+                }).then(
+                    response => response.json()
+                ).then(
+                    result => {
+                        console.log(result['response']);
+                        if (result['response'].includes("non-"))
+                        {
+                            cancerMessageDiv.textContent = 'Alunita non-cancerigena';
+                        }
+                        else
+                        {
+                            cancerMessageDiv.textContent = 'Alunita cancerigena: Trebuie să consultați un medic!';
+                        }
+                    }
+                );
+        }
+        catch (e)
+        {
+            console.error(e);
+        }
+    }
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        var fileInput = document.getElementById('imageInput');
+        var messageDiv = document.getElementById('message');
+        var imageContainer = document.getElementById('imageContainer');
+        imageContainer.innerHTML = ''; // Clear any previous images
+        cancerMessageDiv.textContent = ''; // Clear any previous cancer messages
+
+        if (fileInput.files.length > 0)
+        {
+            var file = fileInput.files[0];
+            var fileType = file.type;
+
+            if (fileType === 'image/png' || fileType === 'image/jpeg')
+            {
+                messageDiv.textContent = 'Poza a fost încărcată.';
+
+                // Create an image element
+                var img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.onload = function()
+                {
+                    URL.revokeObjectURL(this.src);
+                    // Simulate cancer detection (replace with actual ML model)
+                    sendData();
+                };
+
+                // Append the image to the imageContainer
+                imageContainer.appendChild(img);
+            }
+            else
+            {
+                messageDiv.textContent = 'Vă rugăm să încărcați o poză de tip PNG sau JPG.';
+            }
+        } else {
+            messageDiv.textContent = 'Vă rugăm să încărcați o poză.';
+        }
+        });
+
+  </script>
+</html>

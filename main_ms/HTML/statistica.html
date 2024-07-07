@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistica Alunițe</title>
+    <link rel="stylesheet" href="../Style/statistica.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Statistica Alunițe</h2>
+
+
+        <div class="analiza">
+            <h3>Numărul total de alunițe</h3>
+            <p><strong>Număr alunițe:</strong> {{stats.TotalNumberOfMoles}} </p>
+        </div>
+
+        <div class="analiza">
+            <h3>Procentaj alunițe cancerigene</h3>
+            <p><strong>Procentaj alunițe cancerigene:</strong> {{stats.CarcinogenicMolesPercent}}%</p>
+        </div>
+
+        <div class="analiza">
+            <h3>Alunițe mici și simetrice</h3>
+            <p><strong>Număr alunițe mici și simetrice:</strong> {{stats.SmallAndSimetricMoles}}</p>
+        </div>
+
+        <div class="analiza">
+            <h3>Procentaj alunițe cu culoare dominantă brună</h3>
+            <p><strong>Procentaj alunițe cu culoare brună:</strong> {{stats.BrownColorMolesPercent}}%</p>
+        </div>
+
+        <div class="analiza">
+            <h3>Alunițe mari și cu culoare roșie</h3>
+            <p><strong>Număr alunițe mari și cu culoare roșie:</strong> {{stats.BigAndRedColoredMoles}}</p>
+        </div>
+
+        <div class="analiza">
+            <h3>Alunițe cu nota personală sub 5</h3>
+            <p><strong>Număr alunițe cu notă personală sub 5:</strong> {{stats.Under5GradeMoles}}</p>
+        </div>
+
+    </div>
+</body>
+</html>
